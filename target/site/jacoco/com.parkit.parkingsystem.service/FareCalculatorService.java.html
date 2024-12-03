@@ -17,7 +17,7 @@ import java.util.concurrent.TimeUnit;
 <span class="fc" id="L17">        long outHour = ticket.getOutTime().getTime(); // getTime so we have the milliseconds instead</span>
 
         // get in millisecs the difference between the two dates
-<span class="fc" id="L20">        long timeDiffInMillis = Math.abs(inHour - outHour);</span>
+<span class="fc" id="L20">        long timeDiffInMillis = Math.abs(outHour - inHour);</span>
 
         // get in minutes now (not in hours since if it's 45 mins it counts as 0 hours)
 <span class="fc" id="L23">        long timeDiffInMinutes = TimeUnit.MINUTES.convert(timeDiffInMillis, TimeUnit.MILLISECONDS);</span>

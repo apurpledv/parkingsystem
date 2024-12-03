@@ -17,7 +17,7 @@ public class FareCalculatorService {
         long outHour = ticket.getOutTime().getTime(); // getTime so we have the milliseconds instead
 
         // get in millisecs the difference between the two dates
-        long timeDiffInMillis = Math.abs(inHour - outHour);
+        long timeDiffInMillis = Math.abs(outHour - inHour);
 
         // get in minutes now (not in hours since if it's 45 mins it counts as 0 hours)
         long timeDiffInMinutes = TimeUnit.MINUTES.convert(timeDiffInMillis, TimeUnit.MILLISECONDS);
