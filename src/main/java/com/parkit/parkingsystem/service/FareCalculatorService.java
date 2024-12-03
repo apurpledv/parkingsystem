@@ -26,19 +26,23 @@ public class FareCalculatorService {
         double timeDiffFinal = timeDiffInMinutes;
         timeDiffFinal = timeDiffFinal / 60;
 
-        //TODO: Some tests are failing here. Need to check if this logic is correct
         double duration = timeDiffFinal;
 
-        switch (ticket.getParkingSpot().getParkingType()){
-            case CAR: {
-                ticket.setPrice(duration * Fare.CAR_RATE_PER_HOUR);
-                break;
+        // if the time parked is less than 30min (0.5h), the ticket is free, otherwise calculate accordingly
+        if (duration < 0.5) {
+            ticket.setPrice(0);
+        } else {
+            switch (ticket.getParkingSpot().getParkingType()){
+                case CAR: {
+                    ticket.setPrice(duration * Fare.CAR_RATE_PER_HOUR);
+                    break;
+                }
+                case BIKE: {
+                    ticket.setPrice(duration * Fare.BIKE_RATE_PER_HOUR);
+                    break;
+                }
+                default: throw new IllegalArgumentException("Unkown Parking Type");
             }
-            case BIKE: {
-                ticket.setPrice(duration * Fare.BIKE_RATE_PER_HOUR);
-                break;
-            }
-            default: throw new IllegalArgumentException("Unkown Parking Type");
         }
     }
 }
