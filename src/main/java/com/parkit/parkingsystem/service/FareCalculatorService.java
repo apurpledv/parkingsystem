@@ -2,12 +2,13 @@ package com.parkit.parkingsystem.service;
 
 import com.parkit.parkingsystem.constants.Fare;
 import com.parkit.parkingsystem.model.Ticket;
+import com.parkit.parkingsystem.dao.*;
 
 import java.util.Date;
 import java.util.concurrent.TimeUnit;
 
 public class FareCalculatorService {
-
+    private TicketDAO ticketDAO;
     public void calculateFare(Ticket ticket){
         calculateFare(ticket, false);
     }

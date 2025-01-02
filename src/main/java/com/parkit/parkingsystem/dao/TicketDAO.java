@@ -87,7 +87,7 @@ public class TicketDAO {
         return false;
     }
 
-    public int getNbTicket(Ticket ticket) {
+    public boolean getNbTicket(Ticket ticket) {
         Connection con = null;
         // counter of tickets, 0 by default
         int numberOfTickets = 0;
@@ -110,7 +110,12 @@ public class TicketDAO {
             logger.error("Error fetching next available slot",ex);
         }finally {
             dataBaseConfig.closeConnection(con);
-            return numberOfTickets;
+
+            if (numberOfTickets > 1) {
+                return true;
+            } else {
+                return false;
+            }
         }
     }
 }

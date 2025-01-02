@@ -78,7 +78,7 @@ public class ParkingService {
         return parkingSpot;
     }
 
-    private ParkingType getVehichleType(){
+    public ParkingType getVehichleType(){
         System.out.println("Please select vehicle type from menu");
         System.out.println("1 CAR");
         System.out.println("2 BIKE");
@@ -115,8 +115,7 @@ public class ParkingService {
             }
 
             // if already registered, say something
-            System.out.println(ticketDAO.getNbTicket(ticket));
-            if(ticketDAO.getNbTicket(ticket) > 0) {
+            if(ticketDAO.getNbTicket(ticket) == true) {
                 fareCalculatorService.calculateFare(ticket, true);
                 System.out.println("Heureux de vous revoir ! En tant qu’utilisateur régulier de notre parking, vous allez obtenir une remise de 5%.");
             } else {
