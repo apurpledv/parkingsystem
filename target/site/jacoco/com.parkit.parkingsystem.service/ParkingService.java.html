@@ -121,10 +121,11 @@ public class ParkingService {
 <span class="fc" id="L121">            } else {</span>
 <span class="nc" id="L122">                fareCalculatorService.calculateFare(ticket);</span>
             }
+<span class="fc" id="L124">            ticketDAO.updateTicket(ticket);</span>
 
-<span class="pc" id="L125">        }catch(Exception e){</span>
-<span class="fc" id="L126">            logger.error(&quot;Unable to process exiting vehicle&quot;,e);</span>
+<span class="fc" id="L126">        }catch(Exception e){</span>
+<span class="fc" id="L127">            logger.error(&quot;Unable to process exiting vehicle&quot;,e);</span>
         }
-<span class="fc" id="L128">    }</span>
+<span class="fc" id="L129">    }</span>
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.5.201910111838</span></div></body></html>

@@ -121,6 +121,7 @@ public class ParkingService {
             } else {
                 fareCalculatorService.calculateFare(ticket);
             }
+            ticketDAO.updateTicket(ticket);
 
         }catch(Exception e){
             logger.error("Unable to process exiting vehicle",e);

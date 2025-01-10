@@ -94,7 +94,7 @@ public class TicketDAO {
 
         try {
             con = dataBaseConfig.getConnection();
-            PreparedStatement ps = con.prepareStatement(DBConstants.GET_TICKET);
+            PreparedStatement ps = con.prepareStatement(DBConstants.GET_NBTICKET);
             //ID, PARKING_NUMBER, VEHICLE_REG_NUMBER, PRICE, IN_TIME, OUT_TIME)
             ps.setString(1,ticket.getVehicleRegNumber());
             ResultSet rs = ps.executeQuery();
