@@ -35,7 +35,7 @@ public class FareCalculatorService {
         double ticketPrice;
 
         // if the time parked is less than 30min (0.5h), the ticket is free, otherwise calculate accordingly
-        if (duration < 0.5) {
+        if (duration < Fare.FREE_THRESHHOLD_IN_HOUR) {
             ticket.setPrice(0);
         } else {
             switch (ticket.getParkingSpot().getParkingType()){
@@ -52,7 +52,7 @@ public class FareCalculatorService {
 
             // if there is a discount coupon, reduce by 5% the price
             if (discount == true) {
-                ticketPrice = ticketPrice * 0.95;
+                ticketPrice = ticketPrice * Fare.DISCOUNT_RATE;
             }
 
             ticket.setPrice(ticketPrice);
